@@ -58,6 +58,13 @@ const useStyles = createStyles(() => ({
     margin: 0,
     fontWeight: 500,
   },
+  paginationItem: {
+    background: 'transparent',
+    border: 'none',
+  },
+  paginationItemActive: {
+    background: '#3973FF',
+  },
 }));
 
 const Works: NextPage = () => {
@@ -173,19 +180,13 @@ const Works: NextPage = () => {
                 <Text>:</Text>
               </Grid.Col>
               <Grid.Col span={6}>
-                {WorkData.status === 'ACTIVE' ? (
-                  <Badge
-                    color='green'
-                    variant='light'
-                    className={classes.badge}
-                  >
-                    Active
-                  </Badge>
-                ) : (
-                  <Badge color='red' variant='light' className={classes.badge}>
-                    Inactive
-                  </Badge>
-                )}
+                <Badge
+                  color={WorkData.status === 'ACTIVE' ? 'green' : 'red'}
+                  variant='light'
+                  className={classes.badge}
+                >
+                  {WorkData.status}
+                </Badge>
               </Grid.Col>
             </Grid>
           </Grid.Col>
@@ -253,7 +254,15 @@ const Works: NextPage = () => {
       </Box>
 
       <Box sx={{ margin: 24, display: 'flex', justifyContent: 'center' }}>
-        <Pagination total={15} boundaries={2} radius='md' />
+        <Pagination
+          total={15}
+          boundaries={2}
+          radius='md'
+          classNames={{
+            item: classes.paginationItem,
+            active: classes.paginationItemActive,
+          }}
+        />
       </Box>
     </AppLayout>
   );

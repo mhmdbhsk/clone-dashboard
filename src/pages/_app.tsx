@@ -28,7 +28,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   return (
     <>
       <Head>
-        <title>Mantine next example</title>
+        <title>Clone Dashboard</title>
         <meta
           name='viewport'
           content='minimum-scale=1, initial-scale=1, width=device-width'

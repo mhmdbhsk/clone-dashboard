@@ -43,7 +43,9 @@ const useStyles = createStyles((theme) => ({
       borderLeftColor:
         theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 7 : 5],
       backgroundColor:
-        theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 7 : 5],
+        theme.colorScheme === 'dark'
+          ? theme.colors[theme.primaryColor][7]
+          : '#3973FF',
       color: theme.white,
     },
   },
