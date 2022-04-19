@@ -33,7 +33,7 @@ const AppLayout = ({ children, title }: AppLayoutProps) => {
         },
       })}
     >
-      <Container size={'md'} pt={'xl'}>
+      <Container size={'xl'} pt={'xl'}>
         {children}
       </Container>
     </AppShell>

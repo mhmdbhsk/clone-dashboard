@@ -19,10 +19,7 @@ const useStyles = createStyles((theme) => ({
     cursor: 'pointer',
     padding: 16,
     borderRadius: 8,
-    background:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[8]
-        : theme.colors.gray[1],
+    background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : '#fff',
   },
 }));
 
