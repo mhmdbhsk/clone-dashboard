@@ -9,6 +9,7 @@ import {
   ColorSchemeProvider,
 } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
+import NextProgress from 'next-progress';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -25,6 +26,8 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     });
   };
 
+  const theme = { fontFamily: "'Poppins', sans-serif" };
+
   return (
     <>
       <Head>
@@ -34,14 +37,27 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           content='minimum-scale=1, initial-scale=1, width=device-width'
         />
         <link rel='shortcut icon' href='/favicon.svg' />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin=''
+        />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400&display=swap'
+          rel='stylesheet'
+        />
       </Head>
+
+      <NextProgress />
 
       <ColorSchemeProvider
         colorScheme={colorScheme}
         toggleColorScheme={toggleColorScheme}
       >
         <MantineProvider
-          theme={{ colorScheme }}
+          theme={{ colorScheme, ...theme }}
           withGlobalStyles
           withNormalizeCSS
         >

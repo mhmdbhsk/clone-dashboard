@@ -12,7 +12,6 @@ import {
   Grid,
   Pagination,
   Skeleton,
-  Table,
   Tabs,
   Text,
 } from '@mantine/core';
@@ -37,7 +36,7 @@ const useStyles = createStyles(() => ({
   },
   valueItem: {
     fontSize: 14,
-    fontWeight: 700,
+    fontWeight: 500,
   },
   listItem: {
     padding: 28,
@@ -50,6 +49,7 @@ const useStyles = createStyles(() => ({
     fontSize: 14,
   },
   badge: {
+    fontWeight: 500,
     padding: 12,
     textTransform: 'capitalize',
   },
@@ -171,7 +171,9 @@ const Works: NextPage = () => {
                 <Text className={classes.titleItem}>Unit</Text>
                 <Text>:</Text>
               </Grid.Col>
-              <Grid.Col span={6}>{WorkData.unit}</Grid.Col>
+              <Grid.Col span={6} sx={{ fontSize: 14 }}>
+                {WorkData.unit}
+              </Grid.Col>
               <Grid.Col
                 span={6}
                 sx={{ display: 'flex', justifyContent: 'space-between' }}
@@ -185,7 +187,7 @@ const Works: NextPage = () => {
                   variant='light'
                   className={classes.badge}
                 >
-                  {WorkData.status}
+                  {WorkData.status.toLowerCase()}
                 </Badge>
               </Grid.Col>
             </Grid>

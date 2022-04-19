@@ -40,7 +40,11 @@ const AppHeader = ({ isOpen, handleOpen, title }: AppHeaderProps) => {
   console.log(lessThanMd);
 
   return (
-    <Header height={100} p={lessThanMd ? 'xl' : 'md'}>
+    <Header
+      height={100}
+      p={lessThanMd ? 'xl' : 'md'}
+      sx={{ boxShadow: '0 1px 3px 0 rgb(54 74 99 / 5%)' }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -85,23 +89,28 @@ const AppHeader = ({ isOpen, handleOpen, title }: AppHeaderProps) => {
             </Box>
           </MediaQuery>
 
-          <Box sx={{ gap: 20, display: 'flex' }}>
-            <ActionIcon className={classes.actionButton} radius={999}>
-              <Help />
-            </ActionIcon>
-            <ActionIcon className={classes.actionButton} radius={999}>
-              <InfoCircle />
-            </ActionIcon>
-            <ActionIcon className={classes.actionButton} radius={999}>
-              <Bell />
-            </ActionIcon>
-          </Box>
-
-          <MediaQuery smallerThan='md' styles={{ display: 'none !important' }}>
-            <Box>
-              <UserGroup />
+          <Box sx={{ gap: 20, display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ gap: 20, display: 'flex' }}>
+              <ActionIcon className={classes.actionButton} radius={999}>
+                <Help />
+              </ActionIcon>
+              <ActionIcon className={classes.actionButton} radius={999}>
+                <InfoCircle />
+              </ActionIcon>
+              <ActionIcon className={classes.actionButton} radius={999}>
+                <Bell />
+              </ActionIcon>
             </Box>
-          </MediaQuery>
+
+            <MediaQuery
+              smallerThan='md'
+              styles={{ display: 'none !important' }}
+            >
+              <Box>
+                <UserGroup />
+              </Box>
+            </MediaQuery>
+          </Box>
         </Box>
       </Box>
     </Header>
